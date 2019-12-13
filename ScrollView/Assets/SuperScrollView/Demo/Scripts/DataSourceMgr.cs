@@ -19,16 +19,23 @@ namespace SuperScrollView
 
     public class DataSourceMgr : MonoBehaviour
     {
-
+        //列表数据
         List<ItemData> mItemDataList = new List<ItemData>();
+        //刷新完成回调
         System.Action mOnRefreshFinished = null;
+        //加载更多数据完成
         System.Action mOnLoadMoreFinished = null;
+        //加载更多数据数量
         int mLoadMoreCount = 20;
+        //数据加载时间
         float mDataLoadLeftTime = 0;
+        //是否等待刷新数据
         bool mIsWaittingRefreshData = false;
+        //是否等待加载更多数据
         bool mIsWaitLoadingMoreData = false;
+        //数据总条数
         public int mTotalDataCount = 10000;
-
+        //数据管理对象
         static DataSourceMgr instance = null;
 
         public static DataSourceMgr Get
@@ -55,6 +62,7 @@ namespace SuperScrollView
             DoRefreshDataSource();
         }
 
+        //获取index的数据模型
         public ItemData GetItemDataByIndex(int index)
         {
             if (index < 0 || index >= mItemDataList.Count)
@@ -63,7 +71,7 @@ namespace SuperScrollView
             }
             return mItemDataList[index];
         }
-
+        //获取指定id的数据模型
         public ItemData GetItemDataById(int itemId)
         {
             int count = mItemDataList.Count;
@@ -76,7 +84,8 @@ namespace SuperScrollView
             }
             return null;
         }
-
+        
+        //获取数据条数
         public int TotalItemCount
         {
             get
@@ -91,7 +100,7 @@ namespace SuperScrollView
         public void RequestRefreshDataList(System.Action onReflushFinished)
         {
             mDataLoadLeftTime = 1;
-            mOnRefreshFinished = onReflushFinished;
+            mOnRefreshFinished = onReflushFinished;//回调
             mIsWaittingRefreshData = true;
         }
         /// <summary>
@@ -103,7 +112,7 @@ namespace SuperScrollView
         {
             mLoadMoreCount = loadCount;
             mDataLoadLeftTime = 1;
-            mOnLoadMoreFinished = onLoadMoreFinished;
+            mOnLoadMoreFinished = onLoadMoreFinished;//回调
             mIsWaitLoadingMoreData = true;
         }
         /// <summary>

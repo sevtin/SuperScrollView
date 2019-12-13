@@ -27,12 +27,19 @@ namespace SuperScrollView
     /// </summary>
     public class ItemPool
     {
+        //item游戏对象
         GameObject mPrefabObj;
+        //预制体名称
         string mPrefabName;
+        //创建预制体数量
         int mInitCreateCount = 1;
+        //外间距
         float mPadding = 0;
+        //偏移
         float mStartPosOffset = 0;
+        //临时缓存池
         List<LoopListViewItem2> mTmpPooledItemList = new List<LoopListViewItem2>();
+        //存放未显示的item
         List<LoopListViewItem2> mPooledItemList = new List<LoopListViewItem2>();
         static int mCurItemIdCount = 0;
         RectTransform mItemParent = null;
@@ -40,6 +47,15 @@ namespace SuperScrollView
         {
            
         }
+
+        /// <summary>
+        /// 初始化指定数量的预制体
+        /// </summary>
+        /// <param name="prefabObj">预制体对象</param>
+        /// <param name="padding">外间距</param>
+        /// <param name="startPosOffset">偏移</param>
+        /// <param name="createCount">创建数量</param>
+        /// <param name="parent">Rect</param>
         public void Init(GameObject prefabObj, float padding,float startPosOffset, int createCount, RectTransform parent)
         {
             mPrefabObj = prefabObj;
@@ -55,6 +71,10 @@ namespace SuperScrollView
                 RecycleItemReal(tViewItem);
             }
         }
+        /// <summary>
+        /// 从缓存池取出item
+        /// </summary>
+        /// <returns></returns>
         public LoopListViewItem2 GetItem()
         {
             mCurItemIdCount++;
@@ -156,13 +176,19 @@ namespace SuperScrollView
     [System.Serializable]
     public class ItemPrefabConfData
     {
+        //预制体
         public GameObject mItemPrefab = null;
+        //外间距
         public float mPadding = 0;
+        //初始化预制体数量
         public int mInitCreateCount = 0;
+        //偏移
         public float mStartPosOffset = 0;
     }
 
-
+    /// <summary>
+    /// 缓存池初始化参数
+    /// </summary>
     public class LoopListViewInitParam
     {
         // all the default values
@@ -180,7 +206,9 @@ namespace SuperScrollView
             return new LoopListViewInitParam();
         }
     }
-
+    /// <summary>
+    /// 捕捉状态
+    /// </summary>
     public enum SnapStatus
     {
         NoTargetSet = 0,
@@ -359,6 +387,7 @@ namespace SuperScrollView
             RecycleAllItem();
             ClearAllTmpRecycledItem();
             pool.DestroyAllItem();
+            //初始化预制体
             pool.Init(data.mItemPrefab, data.mPadding, data.mStartPosOffset,data.mInitCreateCount, mContainerTrans);
             if(firstItemIndex >= 0)
             {

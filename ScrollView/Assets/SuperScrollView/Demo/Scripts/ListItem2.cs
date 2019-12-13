@@ -7,12 +7,19 @@ namespace SuperScrollView
 {
     public class ListItem2 : MonoBehaviour
     {
+        //标题名称
         public Text mNameText;
+        //图标
         public Image mIcon;
+        //星星
         public Image[] mStarArray;
+        //描述
         public Text mDescText;
+        //描述2
         public Text mDescText2;
+        //红色
         public Color32 mRedStarColor = new Color32(249, 227, 101, 255);
+        //白色
         public Color32 mGrayStarColor = new Color32(215, 215, 215, 255);
         public GameObject mContentRootObj;
         int mItemDataIndex = -1;
