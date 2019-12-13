@@ -22,7 +22,9 @@ namespace SuperScrollView
         LeftToRight,
         RightToLeft,
     }
-
+    /// <summary>
+    /// item缓存池
+    /// </summary>
     public class ItemPool
     {
         GameObject mPrefabObj;
@@ -83,7 +85,9 @@ namespace SuperScrollView
             return tItem;
 
         }
-
+        /// <summary>
+        /// 销毁所有item
+        /// </summary>
         public void DestroyAllItem()
         {
             ClearTmpRecycledItem();
@@ -94,6 +98,10 @@ namespace SuperScrollView
             }
             mPooledItemList.Clear();
         }
+        /// <summary>
+        /// 创建item
+        /// </summary>
+        /// <returns></returns>
         public LoopListViewItem2 CreateItem()
         {
 
@@ -108,15 +116,26 @@ namespace SuperScrollView
             tViewItem.StartPosOffset = mStartPosOffset;
             return tViewItem;
         }
+        /// <summary>
+        /// 回收item
+        /// </summary>
+        /// <param name="item"></param>
         void RecycleItemReal(LoopListViewItem2 item)
         {
             item.gameObject.SetActive(false);
             mPooledItemList.Add(item);
         }
+        /// <summary>
+        /// 添加到缓存池
+        /// </summary>
+        /// <param name="item"></param>
         public void RecycleItem(LoopListViewItem2 item)
         {
             mTmpPooledItemList.Add(item);
         }
+        /// <summary>
+        /// 清空缓存池
+        /// </summary>
         public void ClearTmpRecycledItem()
         {
             int count = mTmpPooledItemList.Count;
@@ -131,6 +150,9 @@ namespace SuperScrollView
             mTmpPooledItemList.Clear();
         }
     }
+    /// <summary>
+    /// 序列化类采用[System.Serializable]，非序列化采用[System.NonSerialized]。
+    /// </summary>
     [System.Serializable]
     public class ItemPrefabConfData
     {
@@ -672,6 +694,7 @@ namespace SuperScrollView
         /*
         To update a item by itemIndex.if the itemIndex-th item is not visible, then this method will do nothing.
         Otherwise this method will first call onGetItemByIndex(itemIndex) to get a updated item and then reposition all visible items'position. 
+        按 Index 更新item。如果item Index-th 不可见，则此方法将不执行任何操作
         */
         public void RefreshItemByItemIndex(int itemIndex)
         {
@@ -812,7 +835,7 @@ namespace SuperScrollView
             ClearAllTmpRecycledItem();
         }
 
-        //update all visible items.
+        //更新所有可见item
         public void RefreshAllShownItem()
         {
             int count = mItemList.Count;
@@ -1404,8 +1427,6 @@ namespace SuperScrollView
             }
         }
 
-
-
         public void UpdateAllShownItemSnapData()
         {
             if (mItemSnapEnable == false)
@@ -1497,8 +1518,6 @@ namespace SuperScrollView
                 }
             }
         }
-
-
 
         void UpdateSnapVertical(bool immediate = false)
         {
@@ -1669,7 +1688,6 @@ namespace SuperScrollView
             }
 
         }
-
 
         void UpdateCurSnapData()
         {

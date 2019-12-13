@@ -84,14 +84,21 @@ namespace SuperScrollView
                 return mItemDataList.Count;
             }
         }
-
+        /// <summary>
+        /// 加载最新数据
+        /// </summary>
+        /// <param name="onReflushFinished"></param>
         public void RequestRefreshDataList(System.Action onReflushFinished)
         {
             mDataLoadLeftTime = 1;
             mOnRefreshFinished = onReflushFinished;
             mIsWaittingRefreshData = true;
         }
-
+        /// <summary>
+        /// 加载更多数据
+        /// </summary>
+        /// <param name="loadCount"></param>
+        /// <param name="onLoadMoreFinished"></param>
         public void RequestLoadMoreDataList(int loadCount,System.Action onLoadMoreFinished)
         {
             mLoadMoreCount = loadCount;
@@ -99,7 +106,9 @@ namespace SuperScrollView
             mOnLoadMoreFinished = onLoadMoreFinished;
             mIsWaitLoadingMoreData = true;
         }
-
+        /// <summary>
+        /// 加载数据
+        /// </summary>
         public void Update()
         {
             if (mIsWaittingRefreshData)
@@ -116,27 +125,34 @@ namespace SuperScrollView
                 }
             }
             else if (mIsWaitLoadingMoreData)
-            {
+            {//如果是加载更多数据
                 mDataLoadLeftTime -= Time.deltaTime;
                 if (mDataLoadLeftTime <= 0)
                 {
                     mIsWaitLoadingMoreData = false;
+                    //请求数据
                     DoLoadMoreDataSource();
                     if (mOnLoadMoreFinished != null)
                     {
+                        //加载数据完成回调
                         mOnLoadMoreFinished();
                     }
                 }
             }
 
         }
-
+        /// <summary>
+        /// 更新数据源数量
+        /// </summary>
+        /// <param name="count"></param>
         public void SetDataTotalCount(int count)
         {
             mTotalDataCount = count;
             DoRefreshDataSource();
         }
-
+        /// <summary>
+        /// 开始重新更新数据源
+        /// </summary>
         void DoRefreshDataSource()
         {
             mItemDataList.Clear();
@@ -154,7 +170,9 @@ namespace SuperScrollView
                 mItemDataList.Add(tData);
             }
         }
-
+        /// <summary>
+        /// 加载更多数据
+        /// </summary>
         void DoLoadMoreDataSource()
         {
             int count = mItemDataList.Count;
@@ -173,7 +191,9 @@ namespace SuperScrollView
                 mItemDataList.Add(tData);
             }
         }
-
+        /// <summary>
+        /// 选中所有item
+        /// </summary>
         public void CheckAllItem()
         {
             int count = mItemDataList.Count;
@@ -182,7 +202,9 @@ namespace SuperScrollView
                 mItemDataList[i].mChecked = true;
             }
         }
-
+        /// <summary>
+        /// 不选所有item
+        /// </summary>
         public void UnCheckAllItem()
         {
             int count = mItemDataList.Count;
@@ -191,7 +213,10 @@ namespace SuperScrollView
                 mItemDataList[i].mChecked = false;
             }
         }
-
+        /// <summary>
+        /// 删除所有选中的item
+        /// </summary>
+        /// <returns></returns>
         public bool DeleteAllCheckedItem()
         {
             int oldCount = mItemDataList.Count;

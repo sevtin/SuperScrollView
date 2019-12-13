@@ -12,9 +12,9 @@ namespace SuperScrollView
         float mLoadingTipItemHeight = 100;
         int mLoadMoreCount = 20;
 
-        Button mScrollToButton;
-        InputField mScrollToInput;
-        Button mBackButton;
+        //Button mScrollToButton;
+        //InputField mScrollToInput;
+        //Button mBackButton;
         // Use this for initialization
         void Start()
         {
@@ -23,13 +23,15 @@ namespace SuperScrollView
             mLoopListView.mOnBeginDragAction = OnBeginDrag;
             mLoopListView.mOnDragingAction = OnDraging;
             mLoopListView.mOnEndDragAction = OnEndDrag;
-            mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
-            mScrollToInput = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputField").GetComponent<InputField>();
-            mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
-            mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
-            mBackButton.onClick.AddListener(OnBackBtnClicked);
+            //mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
+            //mScrollToInput = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputField").GetComponent<InputField>();
+            //mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
+            //mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
+            //mBackButton.onClick.AddListener(OnBackBtnClicked);
         }
-
+        /// <summary>
+        /// 多余场景跳转方法
+        /// </summary>
         void OnBackBtnClicked()
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
@@ -43,9 +45,11 @@ namespace SuperScrollView
                 return null;
             }
             LoopListViewItem2 item = null;
+            //当index == 总的数据条数
             if (index == DataSourceMgr.Get.TotalItemCount)
             {
                 item = listView.NewListViewItem("ItemPrefab0");
+                //更新加载栏状态
                 UpdateLoadingTip(item);
                 return item;
             }
@@ -56,6 +60,7 @@ namespace SuperScrollView
             }
             item = listView.NewListViewItem("ItemPrefab1");
             ListItem2 itemScript = item.GetComponent<ListItem2>();
+            //如果没有初始化，则进行初始化
             if (item.IsInitHandlerCalled == false)
             {
                 item.IsInitHandlerCalled = true;
@@ -65,10 +70,14 @@ namespace SuperScrollView
             {
                 item.Padding = 0;
             }
+            //更新item数据和UI
             itemScript.SetItemData(itemData, index);
             return item;
         }
-
+        /// <summary>
+        /// 更新加载栏状态
+        /// </summary>
+        /// <param name="item"></param>
         void UpdateLoadingTip(LoopListViewItem2 item)
         {
             if (item == null)
@@ -169,9 +178,12 @@ namespace SuperScrollView
             }
             mLoadingTipStatus = LoadingTipStatus.WaitLoad;
             UpdateLoadingTip(item);
+            //请求加载更多数据
             DataSourceMgr.Get.RequestLoadMoreDataList(mLoadMoreCount, OnDataSourceLoadMoreFinished);
         }
-
+        /// <summary>
+        /// 加载数据完成回调
+        /// </summary>
         void OnDataSourceLoadMoreFinished()
         {
             if (mLoopListView.ShownItemCount == 0)
@@ -189,7 +201,8 @@ namespace SuperScrollView
         void OnJumpBtnClicked()
         {
             int itemIndex = 0;
-            if (int.TryParse(mScrollToInput.text, out itemIndex) == false)
+            //int.TryParse(string s,out int i) 的参数： s是要转换的字符串，i 是转换的结果。
+            if (int.TryParse("0", out itemIndex) == false)
             {
                 return;
             }

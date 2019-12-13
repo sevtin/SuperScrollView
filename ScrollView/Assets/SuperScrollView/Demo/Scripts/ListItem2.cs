@@ -57,7 +57,7 @@ namespace SuperScrollView
                 mStarArray[i].color = mGrayStarColor;
             }
         }
-
+        //更新item数据和UI
         public void SetItemData(ItemData itemData,int itemIndex)
         {
             mItemDataIndex = itemIndex;
