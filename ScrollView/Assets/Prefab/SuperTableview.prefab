@@ -2663,7 +2663,6 @@ GameObject:
   - component: {fileID: 3833140330844808442}
   - component: {fileID: 3833140330844808440}
   - component: {fileID: 3833140330844808441}
-  - component: {fileID: 3833140330844808439}
   m_Layer: 5
   m_Name: ItemPrefab1
   m_TagString: Untagged
@@ -2732,35 +2731,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &3833140330844808439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3833140330844808443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 106913316592ef540a632e726fd8cb5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mNameText: {fileID: 3833140330400567002}
-  mIcon: {fileID: 3833140329070980506}
-  mStarArray:
-  - {fileID: 3833140330818100258}
-  - {fileID: 3833140329088475762}
-  - {fileID: 3833140329521982509}
-  - {fileID: 3833140329786813719}
-  - {fileID: 3833140329611177144}
-  mDescText: {fileID: 3833140330602184126}
-  mDescText2: {fileID: 3833140329873584038}
-  mRedStarColor:
-    serializedVersion: 2
-    rgba: 4279383781
-  mGrayStarColor:
-    serializedVersion: 2
-    rgba: 4292335575
-  mContentRootObj: {fileID: 0}
 --- !u!1 &3833140330875740463
 GameObject:
   m_ObjectHideFlags: 0

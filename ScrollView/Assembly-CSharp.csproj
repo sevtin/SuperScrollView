@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Controller\SuperDataSourceMgr.cs" />
     <Compile Include="Assets\Scripts\Controller\SuperTableRequest.cs" />
     <Compile Include="Assets\Scripts\Model\NetEase\NetEaseModel.cs" />
+    <Compile Include="Assets\Scripts\View\CustomCell.cs" />
     <Compile Include="Assets\SuperScrollView\Demo\Scripts\DataSourceMgr.cs" />
     <Compile Include="Assets\SuperScrollView\Demo\Scripts\ListItem0.cs" />
     <Compile Include="Assets\SuperScrollView\Demo\Scripts\ListItem1.cs" />

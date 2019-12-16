@@ -40,8 +40,10 @@ public class Match_info
     public string status { get; set; }
 }
 
-public class Live_reviewItem
+public class LiveReviewItem
 {
+    public bool mChecked;
+    public int mId;
     /// <summary>
     /// 
     /// </summary>
@@ -249,7 +251,7 @@ public class RootModel
     /// <summary>
     /// 
     /// </summary>
-    public List<Live_reviewItem> live_review { get; set; }
+    public List<LiveReviewItem> live_review { get; set; }
     /// <summary>
     /// 
     /// </summary>

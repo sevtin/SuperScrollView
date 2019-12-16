@@ -15,7 +15,7 @@ namespace SuperScrollView
     public class SuperDataSourceMgr : MonoBehaviour
     {
         //列表数据
-        List<ItemData> mItemDataList = new List<ItemData>();
+        List<LiveReviewItem> mItemDataList = new List<LiveReviewItem>();
         //加载新数据完成回调
         System.Action mOnRefreshFinished = null;
         //加载更多数据完成
@@ -47,7 +47,7 @@ namespace SuperScrollView
         }
 
         //获取index的数据模型
-        public ItemData GetItemDataByIndex(int index)
+        public LiveReviewItem GetItemDataByIndex(int index)
         {
             if (index < 0 || index >= mItemDataList.Count)
             {
@@ -56,7 +56,7 @@ namespace SuperScrollView
             return mItemDataList[index];
         }
         //获取指定id的数据模型
-        public ItemData GetItemDataById(int itemId)
+        public LiveReviewItem GetItemDataById(int itemId)
         {
             int count = mItemDataList.Count;
             for (int i = 0; i < count; ++i)
@@ -150,18 +150,14 @@ namespace SuperScrollView
         void requestCallback(bool isSucceed, object value)
         {
             string text = value.ToString();
-            RootModel _Model = JsonConvert.DeserializeObject<RootModel>(text); //某实体MODEL
+            RootModel rootModel = JsonConvert.DeserializeObject<RootModel>(text); //某实体MODEL
 
             int count = mItemDataList.Count;
-            for (int i = 0; i < _Model.live_review.Count; i++)
+            for (int i = 0; i < rootModel.live_review.Count; i++)
             {
-                Live_reviewItem item = _Model.live_review[i];
-                ItemData model = new ItemData();
-                model.mName = item.roomName;
-                model.mDesc = item.source;
-                model.mIcon = item.image;
-                model.mId = i + count;
-                mItemDataList.Add(model);
+                LiveReviewItem item = rootModel.live_review[i];
+                item.mId = i + count;
+                mItemDataList.Add(item);
             }
             //最后更新状态
             requestStatus = RequestStatus.Done;

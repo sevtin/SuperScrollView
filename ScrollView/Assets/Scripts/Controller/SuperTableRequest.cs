@@ -29,13 +29,13 @@ namespace SuperScrollView
                 UpdateLoadingTip(item);
                 return item;
             }
-            ItemData itemData = SuperDataSourceMgr.Get.GetItemDataByIndex(index);
+            LiveReviewItem itemData = SuperDataSourceMgr.Get.GetItemDataByIndex(index);
             if (itemData == null)
             {
                 return null;
             }
             item = listView.NewListViewItem("ItemPrefab1");
-            ListItem2 itemScript = item.GetComponent<ListItem2>();
+            CustomCell itemScript = item.GetComponent<CustomCell>();
             //如果没有初始化，则进行初始化
             if (item.IsInitHandlerCalled == false)
             {
