@@ -60,6 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Handler\HttpHelper\HttpHelper.cs" />
+    <Compile Include="Assets\Scripts\Controller\SuperDataSourceMgr.cs" />
+    <Compile Include="Assets\Scripts\Controller\SuperTableRequest.cs" />
+    <Compile Include="Assets\Scripts\Model\NetEase\NetEaseModel.cs" />
     <Compile Include="Assets\SuperScrollView\Demo\Scripts\DataSourceMgr.cs" />
     <Compile Include="Assets\SuperScrollView\Demo\Scripts\ListItem0.cs" />
     <Compile Include="Assets\SuperScrollView\Demo\Scripts\ListItem1.cs" />
@@ -73,19 +77,19 @@
     <Compile Include="Assets\SuperScrollView\Scripts\LoopListView2.cs" />
     <Compile Include="Assets\SuperScrollView\Scripts\LoopListViewItem2.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>H:/UnityProject/SuperScrollView/SuperScrollView/ScrollView/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>H:/UnityProject/SuperTableview/SuperScrollView/ScrollView/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>H:/UnityProject/SuperScrollView/SuperScrollView/ScrollView/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>H:/UnityProject/SuperTableview/SuperScrollView/ScrollView/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>H:/UnityProject/SuperScrollView/SuperScrollView/ScrollView/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>H:/UnityProject/SuperTableview/SuperScrollView/ScrollView/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>H:/UnityProject/SuperScrollView/SuperScrollView/ScrollView/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>H:/UnityProject/SuperTableview/SuperScrollView/ScrollView/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>H:/UnityProject/SuperScrollView/SuperScrollView/ScrollView/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>H:/UnityProject/SuperTableview/SuperScrollView/ScrollView/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Unity/Unity2018.4.0f1/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -288,14 +292,17 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>D:/Unity/Unity2018.4.0f1/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>H:/UnityProject/SuperTableview/SuperScrollView/ScrollView/Assets/Library/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>H:/UnityProject/SuperScrollView/SuperScrollView/ScrollView/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>H:/UnityProject/SuperTableview/SuperScrollView/ScrollView/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>H:/UnityProject/SuperScrollView/SuperScrollView/ScrollView/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>H:/UnityProject/SuperTableview/SuperScrollView/ScrollView/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>H:/UnityProject/SuperScrollView/SuperScrollView/ScrollView/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>H:/UnityProject/SuperTableview/SuperScrollView/ScrollView/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:/Unity/Unity2018.4.0f1/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

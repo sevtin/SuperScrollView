@@ -12,5 +12,13 @@ namespace SuperScrollView
         public Text mText;
         public GameObject mArrow;
         public GameObject mWaitingIcon;
+
+        private void Start()
+        {
+            if(mArrow != null)
+            {
+                mArrow.SetActive(false);
+            }
+        }
     }
 }
